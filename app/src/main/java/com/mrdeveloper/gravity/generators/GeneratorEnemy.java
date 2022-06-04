@@ -13,6 +13,7 @@ public class GeneratorEnemy {
     private int mMaxScreenX;
     private int mMinScreenY;
     private ArrayList<Enemy> mEnemyArrayList;
+    private ArrayList<Enemy> mKillerArrayList;
     private int mTypeEnemy;
 
     //endregion
@@ -27,6 +28,7 @@ public class GeneratorEnemy {
         this.mMaxScreenY = sceneHeight;
         this.mMinScreenY = minScreenY;
         mEnemyArrayList = new ArrayList<>();
+        mKillerArrayList = new ArrayList<>(); //killer
     }
 
     public void update(double speedPlayer) {
@@ -36,11 +38,24 @@ public class GeneratorEnemy {
         for (int i = 0; i < mEnemyArrayList.size(); i++) {
             mEnemyArrayList.get(i).update(speedPlayer);
         }
+
+        //killer
+        if (mKillerArrayList.size()<1){
+            addEnemy(1,2);
+        }
+        for (int i = 0; i<mKillerArrayList.size();i++){
+            mKillerArrayList.get(i).update(speedPlayer);
+        }
     }
 
     public void drawing(GraphicsGame graphicsGame) {
         for (int i = 0; i < mEnemyArrayList.size(); i++) {
             mEnemyArrayList.get(i).drawing(graphicsGame);
+        }
+
+        //killer
+        for (int i = 0; i < mKillerArrayList.size();i++){
+            mKillerArrayList.get(i).drawing(graphicsGame);
         }
     }
     //endregion
@@ -53,7 +68,7 @@ public class GeneratorEnemy {
     }
     private void addEnemy(int amountEnemy,int typeEnemy) {
         for (int i = 0; i < amountEnemy; i++) {
-            mEnemyArrayList.add(new Enemy(mMaxScreenX, mMaxScreenY, mMinScreenY, 1));
+            mKillerArrayList.add(new Enemy(mMaxScreenX, mMaxScreenY, mMinScreenY, typeEnemy));
         }
     }
 
@@ -61,12 +76,20 @@ public class GeneratorEnemy {
         for (int i = 0; i < mEnemyArrayList.size(); i++) {
             mEnemyArrayList.remove(enemy);
         }
+
+        for (int i = 0; i < mKillerArrayList.size(); i++) {
+            mKillerArrayList.remove(enemy);
+        }
     }
     //endregion
 
     //region Get&Set
     public ArrayList<Enemy> getEnemyArrayList() {
         return mEnemyArrayList;
+    }
+
+    public ArrayList<Enemy> getKillerArrayList() {
+        return mKillerArrayList;
     }
     //endregion
 }

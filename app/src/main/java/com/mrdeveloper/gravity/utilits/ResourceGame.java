@@ -15,6 +15,7 @@ public class ResourceGame {
     public static ArrayList<Bitmap> sSpritePlayer;
     public static ArrayList<Bitmap> sSpritePlayerBoost;
     public static ArrayList<Bitmap> sSpriteEnemy;
+    public static ArrayList<Bitmap> sSpriteKiller;
     public static ArrayList<Bitmap> sSpritePlayerShieldsOn;
     public static ArrayList<Bitmap> sSpritePlayerShieldsOnBoost;
     public static ArrayList<Bitmap> sSpriteProtector;

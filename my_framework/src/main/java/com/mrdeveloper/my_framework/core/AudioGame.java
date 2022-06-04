@@ -29,7 +29,7 @@ public class AudioGame {
             AssetFileDescriptor assetFileDescriptor = mAssetManager.openFd(fileName);
             return new MusicGame(assetFileDescriptor);
         } catch (IOException e) {
-            throw new RuntimeException("Не возможно загрузить музыку");
+            throw new RuntimeException("Невозможно загрузить музыку");
         }
     }
 

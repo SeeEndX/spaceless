@@ -50,6 +50,7 @@ public class  LoaderTask extends AsyncTask<Void, Integer, Void> {
         publishProgress(300);
 
         loadSpriteEnemy(mCoreGame.getGraphicsFW());
+        loadSpriteKiller(mCoreGame.getGraphicsFW());
         publishProgress(500);
         loadOther(mCoreGame.getGraphicsFW());
         publishProgress(600);
@@ -121,13 +122,27 @@ public class  LoaderTask extends AsyncTask<Void, Integer, Void> {
         //Метод загружает спрайты врагов
         ResourceGame.sSpriteEnemy = new ArrayList<>();
 
-        ResourceGame.sSpriteEnemy.add(graphicsGame.newSprite(ResourceGame.sTextureAtlas, 256, 0,
+        ResourceGame.sSpriteEnemy.add(graphicsGame.newSprite(ResourceGame.sTextureAtlas, 256, 64,
                 64, 64));
-        ResourceGame.sSpriteEnemy.add(graphicsGame.newSprite(ResourceGame.sTextureAtlas, 320, 0,
+        ResourceGame.sSpriteEnemy.add(graphicsGame.newSprite(ResourceGame.sTextureAtlas, 320, 64,
                 64, 64));
-        ResourceGame.sSpriteEnemy.add(graphicsGame.newSprite(ResourceGame.sTextureAtlas, 384, 0,
+        ResourceGame.sSpriteEnemy.add(graphicsGame.newSprite(ResourceGame.sTextureAtlas, 384, 64,
                 64, 64));
-        ResourceGame.sSpriteEnemy.add(graphicsGame.newSprite(ResourceGame.sTextureAtlas, 448, 0,
+        ResourceGame.sSpriteEnemy.add(graphicsGame.newSprite(ResourceGame.sTextureAtlas, 448, 64,
+                64, 64));
+    }
+
+    private void loadSpriteKiller(GraphicsGame graphicsGame) {
+        //поменял цвета
+        ResourceGame.sSpriteKiller = new ArrayList<>();
+
+        ResourceGame.sSpriteKiller.add(graphicsGame.newSprite(ResourceGame.sTextureAtlas, 256, 0,
+                64, 64));
+        ResourceGame.sSpriteKiller.add(graphicsGame.newSprite(ResourceGame.sTextureAtlas, 320, 0,
+                64, 64));
+        ResourceGame.sSpriteKiller.add(graphicsGame.newSprite(ResourceGame.sTextureAtlas, 384, 0,
+                64, 64));
+        ResourceGame.sSpriteKiller.add(graphicsGame.newSprite(ResourceGame.sTextureAtlas, 448, 0,
                 64, 64));
     }
 

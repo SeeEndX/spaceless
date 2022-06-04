@@ -32,6 +32,7 @@ public class MainPlayer extends ObjectGame {
     private boolean mBoostingPlayer;
     private int mShieldsPlayer;
     private boolean mHitEnemy;
+    private boolean mHitKiller;
     private boolean mIsGameOver;
     private static boolean sShieldsOn;
     //endregion
@@ -136,6 +137,16 @@ public class MainPlayer extends ObjectGame {
             mHitEnemy = true;
             timerOnShieldHit.startTimer();
         }
+    }
+
+    public void hitKiller(){
+        mShieldsPlayer = 0;
+        if (mShieldsPlayer == 0) {
+            ResourceGame.sSoundExplode.play(1);
+            mIsGameOver = true;
+            timerOnGameOver.startTimer();
+        }
+        mHitKiller = true;
     }
 
     public void hitProtector() {

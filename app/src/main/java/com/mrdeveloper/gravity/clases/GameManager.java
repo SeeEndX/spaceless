@@ -77,6 +77,14 @@ public class GameManager {
                 mGeneratorEnemy.hitPlayer(mGeneratorEnemy.getEnemyArrayList().get(i));
             }
         }
+        for (int i = 0; i < mGeneratorEnemy.getKillerArrayList().size();i++){
+            if (UtilCollisionDetectGame.collisionDetect(mMainPlayer, mGeneratorEnemy
+                    .getKillerArrayList().get(i))) {
+                //ResourceGame.sSoundHit.play(1);
+                mMainPlayer.hitKiller();
+                mGeneratorEnemy.hitPlayer(mGeneratorEnemy.getKillerArrayList().get(i));
+            }
+        }
         if (UtilCollisionDetectGame.collisionDetect(mMainPlayer, mGeneratorGifts.getProtector())) {
             hitPlayerWithProtector();
         }

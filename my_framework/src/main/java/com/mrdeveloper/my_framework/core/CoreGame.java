@@ -100,7 +100,7 @@ public class CoreGame extends AppCompatActivity {
 
     public void setScene(SceneGame sceneGame) {
         if (sceneGame == null) {
-            throw new IllegalArgumentException("Не возможно загрзуить сцену");
+            throw new IllegalArgumentException("Невозможно загрузить сцену");
         }
         this.mSceneGame.pause();
         this.mSceneGame.dispose();

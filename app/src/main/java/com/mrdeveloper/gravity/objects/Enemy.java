@@ -52,7 +52,7 @@ public class Enemy extends ObjectGame {
     private void initTypeEnemy(int enemyType) {
         switch (enemyType) {
             case 1:
-                pSpeed = UtilRandomGame.getGap(1, 6);
+                pSpeed = UtilRandomGame.getGap(1, 8);
                 mAnimEnemy = new AnimationGame(3,
                         ResourceGame.sSpriteEnemy.get(0),
                         ResourceGame.sSpriteEnemy.get(1),
@@ -60,7 +60,12 @@ public class Enemy extends ObjectGame {
                         ResourceGame.sSpriteEnemy.get(3));
                 break;
             case 2:
-                pSpeed = UtilRandomGame.getGap(4, 9);
+                pSpeed = UtilRandomGame.getGap(1, 5);
+                mAnimEnemy = new AnimationGame(1,
+                        ResourceGame.sSpriteKiller.get(0),
+                        ResourceGame.sSpriteKiller.get(1),
+                        ResourceGame.sSpriteKiller.get(2),
+                        ResourceGame.sSpriteKiller.get(3));
                 break;
         }
     }
